@@ -1,4 +1,5 @@
 # Vetenary_Clinic_Data
+![](https://github.com/nnamdi-kemas/Vetenary_Clinic_Data/blob/main/petpicture.PNG)
 
 ## Overview
 
@@ -37,15 +38,10 @@ select distinct pets.Name, pets.Kind, petprocedureshistory.ProcedureType from pe
 inner join petprocedureshistory
 on pets.PetID = petprocedureshistory.PetID;
 ```
-
-sql
-Copy code
-SELECT DISTINCT p.pet_name
-FROM pets p
-JOIN procedures pr ON p.pet_id = pr.pet_id;
+![](https://github.com/nnamdi-kemas/Vetenary_Clinic_Data/blob/main/nameandproceduretype.PNG)
 This query retrieves distinct pet names from the pets table that have entries in the procedures table.
 
-Task 3: Match Up All Procedures Performed to Their Descriptions
+### Task 3: Match Up All Procedures Performed to Their Descriptions
 To match procedures performed to their descriptions, you can simply query the procedures table:
 
 sql
