@@ -19,7 +19,7 @@ I was required to assist a vertinary clinic make sense of their data. Their data
 
 Here's a structured approach applied in accomplishing each of the tasks:
 
-Task 1: Extract Information on Pet Names and Owners' Names Side by Side
+### Task 1: Extract Information on Pet Names and Owners' Names Side by Side
 ```sql
 select pets.Name as "PetName", petowners.Name as "PetOwner", petowners.Surname from pets
 inner join petowners
@@ -29,21 +29,14 @@ on pets.OwnerID = petowners.OwnerID;
 
 This query joins the pets and owners tables to retrieve pet names and their corresponding owners' names side by side.
 
-Task 2: Find out Which Pets Had Procedures Performed
-Assuming there's a procedures.csv file that lists procedures performed on pets.
+### Task 2: Find out Which Pets Had Procedures Performed
 
-Create Procedures Table in MySQL:
-
-sql
-Copy code
-CREATE TABLE procedures (
-    procedure_id INT PRIMARY KEY,
-    pet_id INT,
-    procedure_description VARCHAR(255),
-    procedure_cost DECIMAL(10, 2),
-    FOREIGN KEY (pet_id) REFERENCES pets(pet_id)
-);
 Query to Find Pets with Procedures:
+```sql
+select distinct pets.Name, pets.Kind, petprocedureshistory.ProcedureType from pets
+inner join petprocedureshistory
+on pets.PetID = petprocedureshistory.PetID;
+```
 
 sql
 Copy code
