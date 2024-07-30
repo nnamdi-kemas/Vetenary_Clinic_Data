@@ -9,7 +9,15 @@ I was required to assist a vertinary clinic make sense of their data. Their data
 3. Match up all procedures performed to the descriptions.
 4. Extract a table of individual costs (procedure prices) incurred by owners of pets from the clinic in question (the table should have owner and procedure price side by side).
 
-To assist the veterinary clinic with their data analysis tasks using MySQL, you'll need to perform several steps involving data extraction, joining, and aggregation. Here's a structured approach to accomplish each of the tasks:
+## Tool used
+- MySQL
+
+## Skills Demostrated
+- Data extraction
+- Joining
+- Aggregation.
+
+Here's a structured approach applied in accomplishing each of the tasks:
 
 Task 1: Extract Information on Pet Names and Owners' Names Side by Side
 Assuming you have two CSV files: one for pets (pets.csv) and another for owners (owners.csv).
