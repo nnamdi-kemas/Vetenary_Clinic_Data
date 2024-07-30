@@ -20,30 +20,12 @@ I was required to assist a vertinary clinic make sense of their data. Their data
 Here's a structured approach applied in accomplishing each of the tasks:
 
 Task 1: Extract Information on Pet Names and Owners' Names Side by Side
-Assuming you have two CSV files: one for pets (pets.csv) and another for owners (owners.csv).
+```sql
+select pets.Name as "PetName", petowners.Name as "PetOwner", petowners.Surname from pets
+inner join petowners
+on pets.OwnerID = petowners.OwnerID;```
 
-Create Tables in MySQL: Import the CSV files into MySQL tables. You can use the LOAD DATA INFILE statement to load CSV data into MySQL tables.
 
-sql
-Copy code
-CREATE TABLE owners (
-    owner_id INT PRIMARY KEY,
-    owner_name VARCHAR(255)
-);
-
-CREATE TABLE pets (
-    pet_id INT PRIMARY KEY,
-    pet_name VARCHAR(255),
-    owner_id INT,
-    FOREIGN KEY (owner_id) REFERENCES owners(owner_id)
-);
-Query to Extract Pet and Owner Information:
-
-sql
-Copy code
-SELECT p.pet_name, o.owner_name
-FROM pets p
-JOIN owners o ON p.owner_id = o.owner_id;
 This query joins the pets and owners tables to retrieve pet names and their corresponding owners' names side by side.
 
 Task 2: Find out Which Pets Had Procedures Performed
