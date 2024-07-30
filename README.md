@@ -23,8 +23,9 @@ Task 1: Extract Information on Pet Names and Owners' Names Side by Side
 ```sql
 select pets.Name as "PetName", petowners.Name as "PetOwner", petowners.Surname from pets
 inner join petowners
-on pets.OwnerID = petowners.OwnerID;```
-
+on pets.OwnerID = petowners.OwnerID;
+```
+![](petnameandowner.PNG)
 
 This query joins the pets and owners tables to retrieve pet names and their corresponding owners' names side by side.
 
