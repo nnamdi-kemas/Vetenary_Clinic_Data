@@ -42,15 +42,16 @@ on pets.PetID = petprocedureshistory.PetID;
 This query retrieves distinct pet names from the pets table that have entries in the procedures table.
 
 ### Task 3: Match Up All Procedures Performed to Their Descriptions
-To match procedures performed to their descriptions, you can simply query the procedures table:
+To match procedures performed to their descriptions, I simply queried the procedures table:
 
-sql
-Copy code
-SELECT pet_id, procedure_description
-FROM procedures;
+```sql
+select ProcedureType, Description from petproceduresdetails;
+```
+
 This query will give you a list of all procedures performed along with their descriptions.
 
-Task 4: Extract a Table of Individual Costs (Procedure Prices) Incurred by Owners
+![](https://github.com/nnamdi-kemas/Vetenary_Clinic_Data/blob/main/proceduretypeanddescription.PNG)
+## Task 4: Extract a Table of Individual Costs (Procedure Prices) Incurred by Owners
 Assuming you want to extract a table showing owners and the total costs incurred for procedures for their pets.
 
 Query to Calculate Total Procedure Costs Per Owner:
