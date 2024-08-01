@@ -51,22 +51,26 @@ select ProcedureType, Description from petproceduresdetails;
 This query will give you a list of all procedures performed along with their descriptions.
 
 ![](https://github.com/nnamdi-kemas/Vetenary_Clinic_Data/blob/main/proceduretypeanddescription.PNG)
+
 ## Task 4: Extract a Table of Individual Costs (Procedure Prices) Incurred by Owners
-Assuming you want to extract a table showing owners and the total costs incurred for procedures for their pets.
+Assuming you want to extract a table showing owners and the costs incurred for procedures for their pets.
 
-Query to Calculate Total Procedure Costs Per Owner:
+Query to Calculate Procedure Costs Per Owner:
 
-sql
-Copy code
-SELECT o.owner_name, SUM(pr.procedure_cost) AS total_cost
-FROM owners o
-JOIN pets p ON o.owner_id = p.owner_id
-JOIN procedures pr ON p.pet_id = pr.pet_id
-GROUP BY o.owner_name;
-This query joins the owners, pets, and procedures tables, calculates the total cost of procedures for each owner's pets, and groups the results by owner name.
+```sql
+select petowners.Name as 'PetOwner', pets.Name as 'PetNanme', pets.Kind, procedureshistory.ProcedureType, proceduresdetails.Price as 'Cost'  from petowners
+inner join pets on
+pets.OwnerID = petowners.OwnerID
+inner join procedureshistory on 
+procedureshistory.PetID = pets.PetID
+inner join proceduresdetails on
+proceduresdetails.ProcedureSubCode = procedureshistory.ProcedureSubCode;
+```
 
-Conclusion
-Make sure to import the CSV files into MySQL using appropriate commands (LOAD DATA INFILE or through MySQL Workbench), create the necessary tables with correct foreign key relationships, and execute the queries provided to perform the required analytics tasks. Adjust column names and data types as per your actual CSV file structures. This structured approach should help you effectively analyze the veterinary clinic's data using MySQL.
+This query joins the owners, pets, and procedures tables, the costs of procedures for each owner's pets.
+
+![](https://github.com/nnamdi-kemas/Vetenary_Clinic_Data/blob/main/petnameandprice.PNG)
+
 
 
 
