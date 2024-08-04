@@ -58,18 +58,19 @@ Assuming you want to extract a table showing owners and the costs incurred for p
 Query to Calculate Procedure Costs Per Owner:
 
 ```sql
-select petowners.Name as 'PetOwner', pets.Name as 'PetNanme', pets.Kind, procedureshistory.ProcedureType, proceduresdetails.Price as 'Cost'  from petowners
+select petowners.Name as 'Pet Owner', sum(proceduresdetails.Price) as 'Total Cost'  from petowners
 inner join pets on
 pets.OwnerID = petowners.OwnerID
 inner join procedureshistory on 
 procedureshistory.PetID = pets.PetID
 inner join proceduresdetails on
-proceduresdetails.ProcedureSubCode = procedureshistory.ProcedureSubCode;
+proceduresdetails.ProcedureSubCode = procedureshistory.ProcedureSubCode
+group by petowners.Name;
 ```
 
-This query joins the owners, pets, and procedures tables, the costs of procedures for each owner's pets.
+This query joins the owners and Total cost of procedures incurred by the owner to take care of their pets.
 
-![](https://github.com/nnamdi-kemas/Vetenary_Clinic_Data/blob/main/petnameandprice.PNG)
+![](https://github.com/nnamdi-kemas/Vetenary_Clinic_Data/blob/main/petownerandcost.PNG)
 
 
 
